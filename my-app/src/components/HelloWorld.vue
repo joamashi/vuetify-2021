@@ -1,28 +1,12 @@
 <template>
   <v-container>
     <v-row class="text-center">
-
       <v-col cols="12">
         <v-img
           :src="require('../assets/logo.svg')"
           class="my-3"
           contain
           height="200" />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
-        </p>
       </v-col>
 
       <v-col
@@ -41,45 +25,9 @@
           </a>
         </v-row>
       </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank">
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank">
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
     </v-row>
+
+    <v-alert type="success">I'm an Alert Usage Example</v-alert>
   </v-container>
 </template>
 
@@ -138,6 +86,36 @@ export default {
         href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
       },
     ],
+
+    isMobile: false,
   }),
+
+  computed: {
+    // height () {
+    //   switch (this.$vuetify.breakpoint.name) {
+    //     case 'xs': return 220
+    //     case 'sm': return 400
+    //     case 'md': return 500
+    //     case 'lg': return 600
+    //     case 'xl': return 800
+    //   }
+    // },
+  },
+
+  beforeDestroy () {
+      if (typeof window === 'undefined') return;
+      window.removeEventListener('resize', this.onResize, { passive: true });
+    },
+
+    mounted () {
+      this.onResize();
+      window.addEventListener('resize', this.onResize, { passive: true });
+    },
+
+    methods: {
+      onResize () {
+        this.isMobile = window.innerWidth < 600;
+      },
+    },
 }
 </script>
