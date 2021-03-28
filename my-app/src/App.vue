@@ -1,26 +1,81 @@
+  
 <template>
-  <v-app>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      app>
+      <v-list
+        dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          router :to="{
+            name: item.name, 
+            params: {
+              userId : item.params,
+              size : item.qp,
+            },
+            query: item.query
+          }" exact>
+          <!-- 
+            http://localhost:8080/about?group=member&category=trial%20
+          -->
+
+          <!-- 
+            exact : 일치 했을때만 활성화
+             
+            @click="$router.push({ 
+              path: item.path, 
+              query: {}, 
+              params:{}
+            })"
+          -->
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar 
+      color="yellow"
+      flat
+      dense
+      app>
+      <v-app-bar-nav-icon
+        @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+    </v-app-bar>
+
     <v-main>
-      <HelloWorld />
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
+  data: () => ({ 
+    drawer: null,
+    items: [
+      { title: 'Home', name: 'home'},
+      { 
+        title: 'About', 
+        name: 'about', 
+        params: 4000, 
+        qp: 'hodx',
+        query: {
+          group: 'member',
+          category: 'trial '
+        }
+      },
 
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
+      { title: 'Alerts', name: 'alerts'},
+      { title: 'Cards', name: 'cards'},
+    ],
   }),
-};
+}
 </script>
-<style lang="scss">
-  @import 'src/scss/index.scss'
-</style>
