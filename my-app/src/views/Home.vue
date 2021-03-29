@@ -1,6 +1,7 @@
 <template>
   <v-container fluid>
-    Home
+    <h1 class="Noto">Container</h1>
+    <h1 class="Roboto">Container</h1>
   </v-container>
 </template>
 
@@ -33,5 +34,12 @@ export default {
 </script>
 
 <style lang="scss">
-
+  .Noto {
+    font-family: 'Noto Sans KR', serif;
+    font-weight: 700;
+  }
+  .Roboto {
+    font-family: 'Roboto', serif;
+    font-weight: 700;
+  }
 </style>

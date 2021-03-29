@@ -1,0 +1,29 @@
+// * {
+//   border: 1px red solid;
+// }
+
+
+// reset.css 와 normalize.css 차이점
+// https://yeoninim.tistory.com/34
+
+// 텍스트 숨기기(웹 접근성 고려...)
+// https://yeoninim.tistory.com/36
+// position:absolute를 이용해 화면 밖으러 밀어내는 방법
+.hidden {
+  position: absolute !important; 
+  top:auto;
+  left:-10000px; 
+  width:1px; 
+  height:1px; 
+  overflow:hidden;
+}
+
+// CSS clip 사용
+.hidden {
+  position:absolute !important;  
+  width:1px; 
+  height:1px; 
+  overflow:hidden;
+  clip:rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip:rect(1px, 1px, 1px, 1px);
+}
