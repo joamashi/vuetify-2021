@@ -25,12 +25,12 @@ export default new Router({
         {
           path: ':ids',
           name: 'users-defail',
-          component: () => import(/* webpackChunkName: "UsersDefail" */ './views/UsersDefail.vue'),
+          component: () => import(/* webpackChunkName: "UsersDefail" */ './views/sub/UsersDefail.vue'),
         },
         {
           path: ':ids/edit',
           name: 'users-edit',
-          component: import(/* webpackChunkName: "UsersEdit" */ './views/UsersEdit.vue'),
+          component: import(/* webpackChunkName: "UsersEdit" */ './views/sub/UsersEdit.vue'),
         }
       ],
       beforeEnter: (to, from, next) => { // Guard

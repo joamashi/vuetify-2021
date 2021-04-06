@@ -47,7 +47,7 @@
       app>
       <v-app-bar-nav-icon
         @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Vuetify</v-toolbar-title>
+      <v-toolbar-title class="pl-0 font-weight-bold">Vuetify</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
@@ -81,7 +81,6 @@ export default {
 </script>
 
 <style lang="scss">
-    
   // https://fonts.google.com/?subset=korean
   @import 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap';
 

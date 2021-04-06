@@ -10,13 +10,13 @@ export default {
   data: () => ({ 
   }),
 
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter (to, from, next) { // beforeRouteEnter
     console.log(to, from, next)
     console.log('before Route Enter!!')
 
     next()
   },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave (to, from, next) { // beforeRouteLeave
     console.log(to, from, next)
     console.log('before Route Leave!!') // 떠나기 직전에 실행
 
@@ -34,12 +34,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .Noto {
-    font-family: 'Noto Sans KR', serif;
-    font-weight: 700;
-  }
-  .Roboto {
-    font-family: 'Roboto', serif;
-    font-weight: 700;
-  }
+  
 </style>

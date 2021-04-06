@@ -11,7 +11,6 @@
     <p>{{ $route.query.category }}</p>
     <router-link :to="{path: '/'}">Home</router-link>
 
-
     <v-flex xs12>
       <v-text-field
         v-model="userDetail"
@@ -25,6 +24,12 @@
         })">검색</v-btn>
       <!-- @click="$router.push({path: `about/${ userDetail }`}) -->
     </v-flex>
+
+    <v-flex xs12>
+      <!-- 하위 경로 컨텐츠 -->
+      <router-view></router-view>
+    </v-flex>
+
     <div class="video-container">
       <video autoplay="" muted="" playsinline="" data-source-fallback-landscape="https://developer.apple.com/wwdc21/videos/hero-landscape-large-2048x1152.mp4" data-source-fallback-portrait="/wwdc21/videos/hero-portrait-small.mov" src="https://developer.apple.com/wwdc21/videos/hero-portrait-small.mov">
         <source src="https://developer.apple.com/wwdc21/videos/hero-portrait-small.mov" media="(max-width: 735px) and (orientation: portrait)">
@@ -34,10 +39,6 @@
         <source src="https://developer.apple.com/wwdc21/videos/hero-landscape-large-2048x1152.mp4">
       </video>
     </div>
-    <v-flex xs12>
-      <!-- 하위 경로 컨텐츠 -->
-      <router-view></router-view>
-    </v-flex>
   </v-container>
 </template>
 
@@ -89,7 +90,8 @@ export default {
   height: 100%;
 }
 
-video, .endframe {
+video, 
+.endframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -111,7 +113,7 @@ video, .endframe {
 
 @media (max-width: 1068px) and (orientation: portrait) {
 	.endframe {
-		background-image: url('/wwdc21/images/endframe-portrait.jpg');
+		background-image: url('https://developer.apple.com/wwdc21/images/endframe-portrait.jpg');
 	}
 }
 
@@ -121,7 +123,7 @@ video, .endframe {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: #000;
     will-change: opacity;
 }
 
