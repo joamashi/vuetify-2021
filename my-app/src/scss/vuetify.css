@@ -19383,6 +19383,7 @@ html.overflow-y-hidden {
 }
 .theme--light.v-select .v-select__selections {
   color: rgba(0, 0, 0, 0.87);
+  min-height: 10px;
 }
 .theme--light.v-select.v-input--is-disabled .v-select__selections {
   color: rgba(0, 0, 0, 0.38);
@@ -19396,6 +19397,7 @@ html.overflow-y-hidden {
 
 .theme--dark.v-select .v-select__selections {
   color: #FFFFFF;
+  min-height: 10px;
 }
 .theme--dark.v-select.v-input--is-disabled .v-select__selections {
   color: rgba(255, 255, 255, 0.5);

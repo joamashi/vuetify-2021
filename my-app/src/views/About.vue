@@ -11,7 +11,6 @@
     <p>{{ $route.query.category }}</p>
     <router-link :to="{path: '/'}">Home</router-link>
 
-
     <v-flex xs12>
       <v-text-field
         v-model="userDetail"
@@ -30,6 +29,16 @@
       <!-- 하위 경로 컨텐츠 -->
       <router-view></router-view>
     </v-flex>
+
+    <div class="video-container">
+      <video autoplay="" muted="" playsinline="" data-source-fallback-landscape="https://developer.apple.com/wwdc21/videos/hero-landscape-large-2048x1152.mp4" data-source-fallback-portrait="/wwdc21/videos/hero-portrait-small.mov" src="https://developer.apple.com/wwdc21/videos/hero-portrait-small.mov">
+        <source src="https://developer.apple.com/wwdc21/videos/hero-portrait-small.mov" media="(max-width: 735px) and (orientation: portrait)">
+        <source src="https://developer.apple.com/wwdc21/videos/hero-landscape-small-1070x602.mp4" media="(max-width: 735px)">
+        <source src="https://developer.apple.com/wwdc21/videos/hero-portrait-small.mov" media="(max-width: 1068px) and (orientation: portrait)">
+        <source src="https://developer.apple.com/wwdc21/videos/hero-landscape-medium-1340x754.mp4" media="(max-width: 1068px)">
+        <source src="https://developer.apple.com/wwdc21/videos/hero-landscape-large-2048x1152.mp4">
+      </video>
+    </div>
   </v-container>
 </template>
 
@@ -77,5 +86,50 @@ export default {
 </script>
 
 <style lang="scss">
+.container--fluid {
+  height: 100%;
+}
 
+video, 
+.endframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.endframe {
+  position: relative;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  background: url(https://developer.apple.com/wwdc21/images/endframe-landscape.jpg);
+  background-size: cover;
+  background-position: top center;
+}
+
+@media (max-width: 1068px) and (orientation: portrait) {
+	.endframe {
+		background-image: url('https://developer.apple.com/wwdc21/images/endframe-portrait.jpg');
+	}
+}
+
+.video-container {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    will-change: opacity;
+}
+
+@media (max-width: 1068px) and (orientation: portrait) {
+	.video-container {
+		top: 52px;
+	}
+}
 </style>

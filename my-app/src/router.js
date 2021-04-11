@@ -1,12 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+// import Home from './views/Home.vue'
 
 Vue.use(Router)
 
 const About = () => import(/* webpackChunkName: "about" */ './views/About.vue');
-const UsersDefail = () => import(/* webpackChunkName: "UsersDefail" */ './views/UsersDefail.vue');
-const UsersEdit = () => import(/* webpackChunkName: "UsersEdit" */ './views/UsersEdit.vue');
 
 const isUserLogin = true;
 
@@ -17,7 +15,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import(/* webpackChunkName: "Home" */ './views/Home.vue'),
     },
     {
       // path: '/about/:userId',
@@ -27,12 +25,12 @@ export default new Router({
         {
           path: ':ids',
           name: 'users-defail',
-          component: UsersDefail,
+          component: () => import(/* webpackChunkName: "UsersDefail" */ './views/sub/UsersDefail.vue'),
         },
         {
           path: ':ids/edit',
           name: 'users-edit',
-          component: UsersEdit,
+          component: import(/* webpackChunkName: "UsersEdit" */ './views/sub/UsersEdit.vue'),
         }
       ],
       beforeEnter: (to, from, next) => { // Guard
@@ -75,8 +73,6 @@ export default new Router({
 
       component: About
     },
-
-
 
     { path: '/alerts', name: 'alerts', component: () => import(/* webpackChunkName: "alerts" */ './views/Alerts.vue') },
     { path: '/cards', name: 'cards', component: () => import(/* webpackChunkName: "cards" */ './views/Cards.vue') },
