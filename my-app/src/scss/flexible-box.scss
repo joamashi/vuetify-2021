@@ -1,3 +1,75 @@
 /*
   CSS Flex(Flexible Box) 완벽 가이드
 */
+
+.container {
+  display: flex;
+  display: inline-flex;
+
+  // flex-flow: 주축 여러줄묶음
+  flex-flow: row-reverse wrap;
+
+  // flex-direction: 주축
+  flex-direction: row;
+  flex-direction: row-reverse;
+  flex-direction: column;
+  flex-direction: column-reverse;
+  
+  // flex-wrap: 여러줄묶음
+  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
+
+  // justify-content: 정렬방법
+  justify-content: flex-start;
+  justify-content: flex-end;
+  justify-content: center;
+  justify-content: space-between;
+  justify-content: space-around;
+
+  // align-content: 정렬방법
+  align-content: stretch;
+  align-content: flex-start;
+  align-content: flex-end;
+  align-content: center;
+  align-content: space-between;
+  align-content: space-around;
+
+  // align-items: 정렬방법
+  align-items: stretch;
+  align-items: flex-start;
+  align-items: flex-end;
+  align-items: center;
+  align-items: baseline;
+
+  .item {
+    // order: 순서
+    order: 0;
+    order: 1;
+    order: -1;
+
+    // flex: 증가너비 감소너비 기본너비
+    flex: 1 1 20px;
+    flex: 1 1;
+    flex: 1 20px;
+
+    // flex-grow: 증가너비
+    flex-grow: 1;
+    flex-grow: 2;
+
+    // flex-shrink: 감소너비
+    flex-shrink: 1;
+    flex-shrink: 2;
+
+    // flex-basis: 기본너비
+    flex-basis: auto;
+    flex-basis: 0;
+    flex-basis: 100px;
+
+    // align-self: 정렬방법
+    align-self: stretch;
+    align-self: flex-start;
+    align-self: flex-end;
+    align-self: center;
+  }
+}
